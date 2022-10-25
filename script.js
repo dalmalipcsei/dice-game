@@ -11,13 +11,16 @@ let playerTwoScore = document.querySelector('#score--1');
 
 let player = 1;
 
+//hide diceImage on initial load
+diceImage.classList.add('hidden');
 //roll the dice
 const rollDice = () => {
   //generate random number between 1 and 6
   let rollNumber = Math.floor(Math.random() * 6 + 1);
   console.log(rollNumber);
-  // change dice img
+  // change dice img and make it appear
   diceImage.setAttribute('src', `dice-${rollNumber}.png`);
+  diceImage.classList.remove('hidden');
 
   if (player == 1) {
     if (rollNumber == 1) {
@@ -67,6 +70,7 @@ const resetGame = () => {
   playerOneCurrent.textContent = 0;
   playerTwoCurrent.textContent = 0;
   player = 1;
+  diceImage.classList.add('hidden');
 };
 
 //attach event listener to roll dice btn

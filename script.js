@@ -2,6 +2,7 @@
 
 let btnRoll = document.querySelector('.btn--roll');
 let btnHold = document.querySelector('.btn--hold');
+let btnNew = document.querySelector('.btn--new');
 let diceImage = document.querySelector('.dice');
 let playerOneCurrent = document.querySelector('#current--0');
 let playerOneScore = document.querySelector('#score--0');
@@ -60,7 +61,17 @@ const holdScore = () => {
   }
 };
 
+const resetGame = () => {
+  playerOneScore.textContent = 0;
+  playerTwoScore.textContent = 0;
+  playerOneCurrent.textContent = 0;
+  playerTwoCurrent.textContent = 0;
+  player = 1;
+};
+
 //attach event listener to roll dice btn
 btnRoll.addEventListener('click', rollDice);
 //hold score
 btnHold.addEventListener('click', holdScore);
+//reset game
+btnNew.addEventListener('click', resetGame);
